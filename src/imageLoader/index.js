@@ -1,5 +1,3 @@
 module.exports = {
-  hello: () => {
-    console.log('Cornerstone WADO Image Loader');
-  }
+  getMessage: () => 'Cornerstone WADO Image Loader'
 };

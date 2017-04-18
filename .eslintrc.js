@@ -81,7 +81,16 @@ module.exports = {
     'lines-around-comment': 'warn',
     'lines-around-directive': 'warn',
     'max-depth': 'warn',
-    'max-len': 'warn',
+    'max-len': ['warn', {
+        'code': 100,
+        'tabWidth': 2,
+        'comments': 80,
+        'ignoreComments': false,
+        'ignoreTrailingComments': true,
+        'ignoreUrls': true,
+        'ignoreTemplateLiterals': false,
+        'ignoreRegExpLiterals': true
+    }],
     'max-lines': 'warn',
     'max-nested-callbacks': 'warn',
     'max-params': 'warn',

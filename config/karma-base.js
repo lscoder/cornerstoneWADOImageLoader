@@ -1,46 +1,39 @@
+const webpackConfig = require('../webpack.config.js');
+
+// Deleting output.library to avoid "Uncaught SyntaxError: Unexpected token /" error
+// when running testes (var test/foo_test.js = ...)
+delete webpackConfig.output.library;
+
 module.exports = {
   basePath: '../',
-  frameworks: ['browserify', 'mocha'],
-  reporters: ['progress', 'coverage'],
+  frameworks: ['mocha'],
+  reporters: ['progress'],
+  files: [
+    'test/*_test.js',
+    'test/**/*_test.js'
+  ],
+
   plugins: [
-    'karma-browserify',
-    'karma-coverage',
-    'karma-coveralls',
+    'karma-webpack',
     'karma-mocha',
     'karma-phantomjs-launcher',
     'karma-chrome-launcher',
-    'karma-firefox-launcher',
-    'karma-sauce-launcher'
+    'karma-firefox-launcher'
   ],
-  files: [
-    'src/dicom-parser.js',
-    'test/**/*.js'
-  ],
+
   preprocessors: {
-    'src/**/*.js': ['browserify'],
-    'test/**/*.js': ['browserify']
+    'src/**/*.js': ['webpack'],
+    'test/**/*_test.js': ['webpack']
   },
-  browserify: {
-    debug: true,
-    transform: [
-      'babelify',
-      ['browserify-istanbul', { instrumenter: require('babel-istanbul') }]
-    ]
-  },
-  coverageReporter: {
-    dir: './coverage',
-    reporters: [
-      {type: 'html', subdir: 'html'},
-      {type: 'lcov', subdir: '.'},
-      {type: 'text', subdir: '.', file: 'text.txt'},
-      {type: 'text-summary', subdir: '.', file: 'text-summary.txt'}
-    ]
-  },
-  sauceLabs: {
-    startConnect: true,
-    testName: 'DICOM Parser'
-  },
-  // level of logging
-  // possible values: 'OFF' || 'ERROR' || 'WARN' || 'INFO' || 'DEBUG'
-  logLevel: 'INFO'
+
+  webpack: webpackConfig,
+
+  webpackMiddleware: {
+    noInfo: false,
+    stats: {
+      chunks: false,
+      timings: false,
+      errorDetails: true
+    }
+  }
 };

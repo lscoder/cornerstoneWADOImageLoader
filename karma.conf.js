@@ -2,8 +2,6 @@ const path = require('path');
 const outputPath = path.resolve(__dirname, 'dist');
 const webpackConfig = require('./webpack.config.js');
 
-// delete webpackConfig.entry;
-
 // Deleting output.library to avoid "Uncaught SyntaxError: Unexpected token /" error
 // when running testes (var test/foo_test.js = ...)
 delete webpackConfig.output.library;
@@ -20,12 +18,6 @@ module.exports = function(config) {
       'test/**/*_test.js'
     ],
 
-    client: {
-      mocha: {
-        reporter: 'html'
-      }
-    },
-
     plugins: [
       require('karma-webpack'),
       require('karma-mocha'),
@@ -34,7 +26,6 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      // add webpack as preprocessor
       'test/*_test.js': ['webpack'],
       'test/**/*_test.js': ['webpack']
     },
@@ -42,8 +33,7 @@ module.exports = function(config) {
     webpack: webpackConfig,
 
     webpackMiddleware: {
-      // webpack-dev-middleware configuration
-      noInfo: true,
+      noInfo: false,
       // use stats to turn off verbose output
       stats: {
         // options i.e. 
