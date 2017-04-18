@@ -1,13 +1,21 @@
+const path = require('path');
 const webpackConfig = require('../webpack.config.js');
 
 // Deleting output.library to avoid "Uncaught SyntaxError: Unexpected token /" error
 // when running testes (var test/foo_test.js = ...)
 delete webpackConfig.output.library;
 
+// Code coverage
+webpackConfig.module.rules.push({
+  test: /\.js$/,
+  include: path.resolve('./src/'),
+  loader: 'istanbul-instrumenter-loader'
+});
+
 module.exports = {
   basePath: '../',
   frameworks: ['mocha'],
-  reporters: ['progress'],
+  reporters: ['progress', 'coverage'],
   files: [
     'test/*_test.js',
     'test/**/*_test.js'
@@ -18,7 +26,8 @@ module.exports = {
     'karma-mocha',
     'karma-phantomjs-launcher',
     'karma-chrome-launcher',
-    'karma-firefox-launcher'
+    'karma-firefox-launcher',
+    'karma-coverage'
   ],
 
   preprocessors: {
@@ -35,5 +44,20 @@ module.exports = {
       timings: false,
       errorDetails: true
     }
+  },
+
+  sauceLabs: {
+    startConnect: true,
+    testName: 'Cornerstone WADO Image Loader'
+  },
+
+  coverageReporter: {
+    dir: './coverage',
+    reporters: [
+      {type: 'html', subdir: 'html'},
+      {type: 'lcov', subdir: '.'},
+      {type: 'text', subdir: '.', file: 'text.txt'},
+      {type: 'text-summary', subdir: '.', file: 'text-summary.txt'}
+    ]
   }
 };

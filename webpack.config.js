@@ -1,9 +1,11 @@
 const path = require('path');
 const outputPath = path.resolve(__dirname, 'dist');
+const context = path.resolve(__dirname, "src");
 
 module.exports = {
+  context: context,
   entry: {
-    cornerstoneWADOImageLoader: './src/imageLoader/index.js'
+    cornerstoneWADOImageLoader: './imageLoader/index.js'
   },
   target: 'web',
   output: {
