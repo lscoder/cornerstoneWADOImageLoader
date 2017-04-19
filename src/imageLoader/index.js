@@ -1,3 +1,3 @@
-module.exports = {
-  getMessage: () => 'Hello World!'
-};
+// module.exports = {
+//   getMessage: () => 'Hello World!'
+// };

@@ -1,5 +1,5 @@
 const path = require('path');
-const webpackConfig = require('../webpack.config.js');
+const webpackConfig = require('../webpack');
 
 // Deleting output.library to avoid "Uncaught SyntaxError: Unexpected token /" error
 // when running testes (var test/foo_test.js = ...)
@@ -13,7 +13,7 @@ webpackConfig.module.rules.push({
 });
 
 module.exports = {
-  basePath: '../',
+  basePath: '../../',
   frameworks: ['mocha'],
   reporters: ['progress', 'coverage'],
   files: [

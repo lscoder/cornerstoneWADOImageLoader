@@ -1,28 +1,16 @@
 const path = require('path');
-const pkg = require('./package');
 const webpack = require('webpack');
-const context = path.resolve(__dirname, "src");
-const outputPath = path.resolve(__dirname, 'dist');
-
-function getCurrentDate() {
-  var today = new Date();
-  var year = today.getFullYear();
-  var month = ('00' + today.getMonth() + 1).slice(-2);
-  var date = ('00' + today.getDate()).slice(-2);
-
-  return `${year}-${month}-${date}`;
-}
-
-function getBanner() {
-  return `/*! ${pkg.name} - ${pkg.version} - ` +
-         `${getCurrentDate()} ` +
-         `| (c) 2016 Chris Hafey | https://github.com/chafey/cornerstoneWADOImageLoader */`
-}
+const rootPath = process.env.PWD;
+const context = path.resolve(rootPath, "src");
+const outputPath = path.resolve(rootPath, 'dist');
+const bannerPlugin = require('./plugins/banner');
 
 module.exports = {
   context: context,
   entry: {
     cornerstoneWADOImageLoader: './imageLoader/index.js'
+    // cornerstoneWADOImageLoaderWebWorker: './webWorker/index.js',
+    // cornerstoneWADOImageLoaderCodecs: './codecs/index.js'
   },
   target: 'web',
   output: {
@@ -54,11 +42,7 @@ module.exports = {
       }]
     }]
   },
-  plugins:[
-    new webpack.BannerPlugin({
-      banner: getBanner(),
-      entryOnly: true,
-      raw: true
-    })
+  plugins: [
+    bannerPlugin()
   ]
 };
