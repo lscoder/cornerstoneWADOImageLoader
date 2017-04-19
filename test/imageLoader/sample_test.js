@@ -1,10 +1,9 @@
-// import { expect } from 'chai';
-// import imageLoader from '../../src/imageLoader';
+import { expect } from 'chai';
 
-// describe('imageLoader', function () {
-//   describe('#getMessage', function () {
-//     it('should return the expected message', function () {
-//       expect(imageLoader.getMessage()).to.be.equal('Hello World!');
-//     });
-//   });
-// });
+describe('Math', function () {
+  describe('#sum', function () {
+    it('should return 2 for 1+1', function () {
+      expect(1 + 1).to.be.equal(2);
+    });
+  });
+});
