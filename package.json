@@ -48,6 +48,7 @@
     "eslint": "^3.19.0",
     "eslint-loader": "^1.7.1",
     "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
