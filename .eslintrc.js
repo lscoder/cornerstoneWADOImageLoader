@@ -1,4 +1,5 @@
 module.exports = {
+  'parser': 'babel-eslint',
   'env': {
     'browser': true,
     'es6': true,
@@ -11,9 +12,15 @@ module.exports = {
     'sourceType': 'module'
   },
   'globals': {
+    'dicomParser': true,
     'cornerstone': true,
     'cornerstoneWADOImageLoader': true,
-    'cornerstoneWADOImageLoaderWebWorker': true
+    'cornerstoneWADOImageLoaderWebWorker': true,
+    'jpeg': true,
+    'JpegImage': true,
+    'OpenJPEG': true,
+    'JpxImage': true,
+    'CharLS': true
   },
   'rules': {
     'accessor-pairs': 'warn',

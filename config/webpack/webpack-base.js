@@ -8,9 +8,8 @@ const bannerPlugin = require('./plugins/banner');
 module.exports = {
   context: context,
   entry: {
-    cornerstoneWADOImageLoader: './imageLoader/index.js'
-    // cornerstoneWADOImageLoaderWebWorker: './webWorker/index.js',
-    // cornerstoneWADOImageLoaderCodecs: './codecs/index.js'
+    cornerstoneWADOImageLoader: './imageLoader/index.js',
+    cornerstoneWADOImageLoaderWebWorker: './webWorker/index.js'
   },
   target: 'web',
   output: {

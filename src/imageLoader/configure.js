@@ -1,12 +1,8 @@
-(function (cornerstoneWADOImageLoader) {
+"use strict";
 
-  "use strict";
+function configure(options) {
+  console.warn('REFACTOR');
+  // cornerstoneWADOImageLoader.internal.options = options;
+}
 
-  function configure(options) {
-    cornerstoneWADOImageLoader.internal.options = options;
-  }
-
-  // module exports
-  cornerstoneWADOImageLoader.configure = configure;
-
-}(cornerstoneWADOImageLoader));
+export default configure;
