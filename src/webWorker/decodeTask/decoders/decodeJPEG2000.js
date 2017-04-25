@@ -1,3 +1,6 @@
+import JpxImage from 'jpx';
+import OpenJPEG from 'openJPEG';
+
 "use strict";
 
 function decodeJpx(imageFrame, pixelData) {

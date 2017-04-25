@@ -21,7 +21,7 @@ function loadCodecs(config) {
 
   // Load the codecs
   //console.time('loadCodecs');
-  self.importScripts(config.decodeTask.codecsPath);
+  // self.importScripts(config.decodeTask.codecsPath);
   codecsLoaded = true;
   //console.timeEnd('loadCodecs');
 

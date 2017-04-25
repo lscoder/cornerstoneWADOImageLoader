@@ -15,12 +15,7 @@ module.exports = {
     'dicomParser': true,
     'cornerstone': true,
     'cornerstoneWADOImageLoader': true,
-    'cornerstoneWADOImageLoaderWebWorker': true,
-    'jpeg': true,
-    'JpegImage': true,
-    'OpenJPEG': true,
-    'JpxImage': true,
-    'CharLS': true
+    'cornerstoneWADOImageLoaderWebWorker': true
   },
   'rules': {
     'accessor-pairs': 'warn',

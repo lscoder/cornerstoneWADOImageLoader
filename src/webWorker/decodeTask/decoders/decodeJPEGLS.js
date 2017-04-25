@@ -1,3 +1,5 @@
+import CharLS from 'charLS';
+
 "use strict";
 
 var charLS;

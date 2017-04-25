@@ -1,3 +1,5 @@
+import JpegImage from 'jpeg';
+
 "use strict";
 
 function decodeJPEGBaseline(imageFrame, pixelData)

@@ -1,3 +1,5 @@
+import jpeg from 'jpegLossless';
+
 "use strict";
 
 function decodeJPEGLossless(imageFrame, pixelData) {
